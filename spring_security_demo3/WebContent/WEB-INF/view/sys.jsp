@@ -9,7 +9,7 @@
 <title>leader</title>
 </head>
 <body>
-mgr...........
+Admin...........
 
 <a href="${pageContext.request.contextPath}/">back to home page</a>
 <form:form action="${pageContext.request.contextPath}/logout"

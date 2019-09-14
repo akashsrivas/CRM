@@ -17,4 +17,15 @@ public class DemoController {
 		return "leader";
 	}
 
+	@GetMapping("/accessDenied")
+	public String accessDenied()
+	{
+		return "accessDenied";
+	}
+	
+	@GetMapping("/sys")
+	public String sys()
+	{
+		return "sys";
+	}
 }

@@ -6,11 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>leader</title>
+<title>Access Denied</title>
 </head>
 <body>
-mgr...........
-
+You are not autherised person to access this page.......<br><br>
 <a href="${pageContext.request.contextPath}/">back to home page</a>
 <form:form action="${pageContext.request.contextPath}/logout"
 		method="POST" class="form-horizontal">

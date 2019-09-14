@@ -17,8 +17,9 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 		//super.configure(auth);
 		UserBuilder users=org.springframework.security.core.userdetails.User.withDefaultPasswordEncoder();
 	
-		auth.inMemoryAuthentication().withUser(users.username("abc").password("123").roles("xyz"))
-		.withUser(users.username("abc1").password("1231").roles("xyz1"));
+		auth.inMemoryAuthentication().withUser(users.username("akash").password("123").roles("emp"))
+		.withUser(users.username("priyanshu").password("123").roles("mgr","emp"))
+		.withUser(users.username("anu").password("123").roles("admin","emp"));
 	}
 
 	@Override
@@ -26,9 +27,15 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 		// TODO Auto-generated method stub
 		
 		
-		http.authorizeRequests().anyRequest().authenticated().and()
+		http.authorizeRequests().antMatchers("/")
+		.hasRole("emp")
+		.antMatchers("/leader/**")
+		.hasRole("mgr")
+		.antMatchers("/sys/**")
+		.hasRole("admin").and()
 		.formLogin().loginPage("/showMyLoginPage").loginProcessingUrl("/authenticateTheUser")
 		.permitAll()
-		.and().logout().permitAll();
+		.and().logout().permitAll()
+		.and().exceptionHandling().accessDeniedPage("/accessDenied");
 	}
 }
